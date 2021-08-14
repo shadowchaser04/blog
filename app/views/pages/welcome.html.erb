@@ -1,0 +1,39 @@
+<header class="hero">
+  <h1>welcome to the blog</h1>
+</header>
+
+<section class='welcome-message'>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+</section>
+
+<!--Section News-->
+<section class="news">
+  <% @news.limit(3).each do |article| %>
+    <div class="container__news">
+      <div class="news__title">
+        <h3> <%= link_to article.title, article_path(article) %></h3>
+      </div>
+      <div class="news__content">
+        <div class="news__published"><%= date_formatted(article.published_at) %></div>
+        <div class="news__author"></div>
+        <p><%= truncate(article.content, length: 30) %></p>
+      </div>
+    </div>
+  <% end %>
+</section>
+
+<!--Section Reviews-->
+<section class="reviews">
+  <% @reviews.limit(5).each do |article| %>
+    <div class="container__reviews">
+      <div class="news__title">
+        <h3> <%= article.title %></h3>
+      </div>
+      <div class="reviews__content">
+        <div class="reviews__published"><%= date_formatted(article.published_at) %></div>
+        <div class="reviews__author"></div>
+        <p><%= truncate(article.content, length: 30) %></p>
+      </div>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,121 @@
+/*
+ * ----------------------------------------------------------------------------
+ * ARTICLES
+ * ----------------------------------------------------------------------------
+ * Article is the main html5 tag used in articles. It denotes which way the
+ * content within it is aligned. If there is a container it will always
+ * specifiy how many rows or columns per line by deviding the width by an
+ * amount.
+*/
+
+header {
+	&.article_index_header {
+	}
+}
+
+article {
+	&.article_index {
+		flex-direction:row;
+		flex-wrap:wrap;
+	}
+	&.article_show {
+		flex-direction: column;
+	}
+	&.admin_article_show {
+		flex-direction: column;
+		margin-left:20%;
+	}
+}
+
+/*
+ * Article Admin Index is defined by one main content tag.
+*/
+
+
+main {
+	&.admin_article_index {
+		flex-direction: column;
+		margin-left:20%;
+		padding:2rem;
+	}
+}
+
+
+section {
+	&.article_show_tagline {
+		width:20vw;
+		flex-direction: column;
+		align-items:center;
+	}
+}
+
+
+.container {
+	&__index_articles {
+		width:calc(100% / 3);
+		margin-bottom:2rem;
+	}
+}
+
+
+// Article Index
+
+
+.article_index {
+	&__title {
+		text-align:center;
+	}
+	&__content {
+	}
+	&__published {
+	}
+	&__author {
+	}
+}
+
+
+// Arrticle Show
+
+
+.article_show {
+	&__title {
+		text-align:center;
+		font-weight:200;
+	}
+	&__content {
+		font-weight:200;
+		padding:2rem;
+	}
+	&__published {
+		text-align:center;
+		margin-top:2rem;
+		border-bottom:double;
+	}
+}
+
+.article_show_tagline {
+	&__author {
+		margin-top:1rem;
+	}
+}
+
+
+img {
+	&.article_index {
+		height:15rem;
+		padding:2rem;
+	}
+	&.main_article_show {
+		height: 60vh;
+		padding:2rem;
+	}
+	&.article_show_tagline__author_img{
+		height:5rem;
+		width:5rem;
+		border:1px solid;
+		border-radius:50%;
+	}
+}
+
+
+

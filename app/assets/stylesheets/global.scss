@@ -1,0 +1,21 @@
+/*
+ * ----------------------------------------------------------------------------
+ * Application Wide
+ * ----------------------------------------------------------------------------
+ * There are two containers Admin, which wraps every page with the admin name
+ * in it. This sets the basic direction to row. This is done becaue there are
+ * to outer elements to a page. An aside and a main content. This is because
+ * the aside is render from the application level.
+*/
+
+.container {
+	&__site {
+		margin-top:4rem;
+		padding:2rem;
+	}
+	&__admin {
+		margin-top:4rem;
+		display:flex;
+		flex-direction:row;
+	}
+}

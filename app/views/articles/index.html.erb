@@ -1,0 +1,28 @@
+<header class='header__article_index'>
+    <h1>Articles</h1>
+</header>
+
+<!--Begin Articles-->
+<article class='article_index'>
+  <% @articles.each do |article| %>
+    <div class="container__index_articles">
+      <%= image_tag(article.pictures.first.name, class: :"article_index") %>
+      <div class="article_index__title">
+        <h3><%= link_to article.title, article_path(article) %></h3>
+      </div>
+
+      <!--Begin Article Content-->
+      <div class="article_index__content">
+        <div class="article_index__published">
+          <% if article.published == true %>
+            <%= date_formatted(article.published_at) %>
+          <% end %>
+        </div>
+        <div class="article_index__author"></div>
+        <p><%= truncate(article.content, length: 50) %></p>
+      </div>
+    </div>
+
+  <% end %>
+</article>
+

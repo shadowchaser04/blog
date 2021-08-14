@@ -1,0 +1,53 @@
+<main class='admin_article_index'>
+
+  <div class="btn btn-info"o>
+    <%= link_to "create article", new_admin_article_path %>
+  </div>
+
+  <!--Begin Search Form-->
+  <%= form_tag(admin_articles_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
+  <% if @articles.present? %>
+    <%= render @articles %>
+  <% else %>
+    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+
+  <!--Begin Table-->
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Pagecount</th>
+        <th>status</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, admin_article_path(article) %></td>
+          <td><%= truncate(article.content, length: 30) %></td>
+          <td><%= article.pagecount %></td>
+          <td><%= published_convert(article.published) %></td>
+          <% if article.published_at == nil %>
+            <td>N/A</td>
+          <% else %>
+            <td><%= article.published_at.strftime("%A, %b %d") %></td>
+          <% end %>
+          <td><%= link_to category_name(article.category_id), articles_path(category: article.category_id) %></td>
+          <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+          <td><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>
+

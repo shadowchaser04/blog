@@ -1,0 +1,39 @@
+<aside class="admin">
+
+  <div class="admin-user-wraper">
+  <% unless current_page?(new_admin_article_path) || params[:action] == "edit" || params[:controller] == "admin/users/sessions" %>
+    <% if current_admin_user.pictures.present? %>
+      <%= image_tag(current_admin_user.pictures.first.name, class: :"admin-user-img") %>
+    <% end %>
+    <div class="admin-username">
+      <%= current_admin_user.username %>
+    </div>
+    <div class='admin-online'>online</div>
+  <% end %>
+  </div>
+
+    <!--Start Nav Buttons-->
+    <ul>
+        <!--Begin Dashboard-->
+        <li>
+            <i class="material-icons md-18">home</i>
+            <%= link_to "dashboard", admin_path %>
+        </li>
+
+        <!--Begin Articles-->
+        <li>
+            <i class="material-icons md-18">list</i>
+            <%= link_to "articles", admin_articles_path %>
+        </li>
+
+        <!--Begin Profile Buttons-->
+        <li>
+            <i class="material-icons md-18">list</i>
+            <%= link_to "edit profile", edit_admin_user_registration_path %>
+        </li>
+        <li>
+            <i class="material-icons md-18">list</i>
+            <%= link_to "sign-out", destroy_admin_user_session_path, method: :delete %>
+        </li>
+    </ul>
+</aside>

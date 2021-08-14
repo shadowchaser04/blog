@@ -1,0 +1,73 @@
+/*
+ * ----------------------------------------------------------------------------
+ * Welcome Page
+ * ----------------------------------------------------------------------------
+ * Section is the main html5 tag used in the welcome pages. It denotes which
+ * way the content within it is aligned. If there is a container it will always
+ * specifiy how many rows or columns per line by deviding the width by an
+ * amount.
+*/
+
+
+header {
+	&.hero {
+  		display: flex;
+  		flex-direction: column;
+  		justify-content:center;
+		text-align: center;
+		height: calc(60vh - 4rem);
+	}
+}
+
+
+section {
+	&.news{
+		flex-direction:row;
+		padding:2rem;
+	}
+	&.reviews{
+		flex-direction:row;
+		padding:2rem;
+	}
+	&.sponsers{
+		flex-direction:row;
+		padding:2rem;
+	}
+}
+
+
+.container {
+	&__news {
+		width:calc(100% / 3);
+	}
+	&__reviews {
+		width:calc(100% / 5);
+	}
+	&__sponsers {
+		width:calc(100% / 5);
+	}
+}
+
+
+.news {
+	&__title {
+	}
+	&__content {
+	}
+	&__published {
+	}
+	&__author {
+	}
+}
+
+
+.reviews {
+	&__title {
+	}
+	&__content {
+	}
+	&__published {
+	}
+	&__author {
+	}
+}

@@ -1,0 +1,36 @@
+<article class="article_show">
+
+    <!-- Begin Published-->
+    <div class="article_show__published">
+        <%= date_formatted(@article.published_at) %>
+    </div>
+
+    <!-- Begin Title-->
+    <div class="article_show__title">
+        <h1><%= @article.title %></h1>
+    </div>
+
+    <!--Main Article Image-->
+    <% if @article.pictures.present? %>
+      <%= image_tag(@article.pictures.first.name, class: :"main_article_show") %>
+    <% end %>
+
+    <section class="article_show_tagline">
+      <!-- Begin Picture-->
+      <% if @author.pictures.present? %>
+        <%= image_tag(@author.pictures.first.name, class: "article_show_tagline__author_img") %>
+      <% end %>
+
+      <!-- Begin Author-->
+      <div class="article_show_tagline__author">
+        <% if @author.username.present? %>
+          Author: <%= @author.username %>
+        <% end %>
+      </div>
+    </section>
+
+    <div class="article_show__content">
+        <%= markdown(@article.content) %>
+    </div>
+
+</article>
